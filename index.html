@@ -11,7 +11,6 @@
   *{margin:0;padding:0;box-sizing:border-box;}
   body{background:#0d1117;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.6;}
   a{color:#7c77dd;text-decoration:none;}
-  a:hover{text-decoration:underline;}
   nav{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;border-bottom:1px solid #21262d;position:sticky;top:0;background:#0d1117;z-index:10;}
   .nav-left{display:flex;align-items:center;gap:12px;}
   .avatar{width:32px;height:32px;border-radius:50%;background:#534AB7;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;color:#fff;}
@@ -19,12 +18,12 @@
   .nav-repo{font-size:14px;color:#7c77dd;font-weight:600;}
   .nav-sep{color:#444;}
   .btn{padding:5px 14px;border-radius:6px;font-size:13px;border:1px solid #30363d;cursor:pointer;background:#21262d;color:#e6edf3;}
-  .btn:hover{background:#30363d;}
   .btn-primary{background:#534AB7;border-color:#534AB7;color:#fff;}
-  .hero{padding:60px 40px 40px;max-width:900px;margin:0 auto;}
+
+  .hero{padding:60px 40px 40px;max-width:960px;margin:0 auto;}
   .badge{display:inline-flex;align-items:center;gap:6px;background:#161b22;border:1px solid #30363d;border-radius:20px;padding:4px 12px;font-size:12px;color:#8b949e;margin-bottom:20px;}
   .badge span{width:8px;height:8px;border-radius:50%;background:#1D9E75;display:inline-block;}
-  h1{font-size:36px;font-weight:700;margin-bottom:12px;letter-spacing:-0.5px;}
+  h1{font-size:36px;font-weight:700;margin-bottom:12px;}
   h1 em{color:#7c77dd;font-style:normal;}
   .subtitle{font-size:16px;color:#8b949e;max-width:600px;margin-bottom:32px;}
   .tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:40px;}
@@ -32,24 +31,41 @@
   .tag-cpp{background:#1a1f35;color:#7c77dd;border:1px solid #534AB7;}
   .tag-oop{background:#0d1f17;color:#3fb950;border:1px solid #1D9E75;}
   .tag-algo{background:#1f1a0d;color:#d29922;border:1px solid #9e6a03;}
-  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:48px;}
-  .stat{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:20px;text-align:center;}
-  .stat-num{font-size:28px;font-weight:700;color:#e6edf3;}
-  .stat-label{font-size:12px;color:#8b949e;margin-top:4px;}
-  .section{max-width:900px;margin:0 auto 48px;padding:0 40px;}
-  .section-title{font-size:13px;font-weight:600;color:#8b949e;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:16px;display:flex;align-items:center;gap:8px;}
-  .section-title::after{content:'';flex:1;height:1px;background:#21262d;}
-  .code-wrapper{border:1px solid #21262d;border-radius:10px;overflow:hidden;}
+
+  /* LIVE DEMO + CODE side by side */
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:32px;max-width:960px;margin:0 auto 48px;padding:0 40px;align-items:start;}
+
+  /* CALCULATOR */
+  .calc-wrap{background:#161b22;border:1px solid #21262d;border-radius:16px;overflow:hidden;}
+  .calc-label{padding:14px 18px;font-size:12px;font-weight:600;color:#8b949e;text-transform:uppercase;letter-spacing:0.08em;border-bottom:1px solid #21262d;display:flex;align-items:center;gap:8px;}
+  .calc-label::before{content:'▶';color:#1D9E75;font-size:10px;}
+  .calc-display{padding:20px 18px 12px;text-align:right;}
+  .calc-expr{font-size:12px;color:#555;min-height:16px;font-family:monospace;}
+  .calc-num{font-size:44px;font-weight:300;color:#fff;line-height:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .calc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#21262d;}
+  .cb{padding:18px 0;font-size:18px;border:none;cursor:pointer;transition:all 0.1s;font-family:inherit;}
+  .cb:active{transform:scale(0.94);opacity:0.8;}
+  .cf{background:#2c2c2e;color:#a1a1a6;font-size:15px;}
+  .co{background:#534AB7;color:#fff;font-size:22px;}
+  .co.lit{background:#e8e6ff;color:#534AB7;}
+  .cn{background:#1c1c1e;color:#fff;}
+  .ce{background:#1D9E75;color:#fff;font-size:22px;}
+  .cz{text-align:left;padding-left:26px;}
+
+  /* CODE */
+  .code-wrap{border:1px solid #21262d;border-radius:16px;overflow:hidden;}
   .code-header{display:flex;align-items:center;justify-content:space-between;padding:10px 16px;background:#161b22;border-bottom:1px solid #21262d;}
   .code-dots{display:flex;gap:6px;}
-  .dot{width:12px;height:12px;border-radius:50%;}
-  .dot-r{background:#ff5f57;}
-  .dot-y{background:#febc2e;}
-  .dot-g{background:#28c840;}
-  .code-filename{font-size:13px;color:#8b949e;font-family:monospace;}
-  .copy-btn{font-size:12px;color:#8b949e;background:none;border:1px solid #30363d;border-radius:4px;padding:3px 10px;cursor:pointer;}
-  pre{margin:0!important;border-radius:0!important;}
-  pre code{font-size:13.5px!important;line-height:1.7!important;font-family:'SF Mono',Consolas,monospace!important;}
+  .dot{width:11px;height:11px;border-radius:50%;}
+  .dot-r{background:#ff5f57;}.dot-y{background:#febc2e;}.dot-g{background:#28c840;}
+  .code-filename{font-size:12px;color:#8b949e;font-family:monospace;}
+  .copy-btn{font-size:11px;color:#8b949e;background:none;border:1px solid #30363d;border-radius:4px;padding:3px 9px;cursor:pointer;}
+  pre{margin:0!important;border-radius:0!important;max-height:480px;overflow-y:auto;}
+  pre code{font-size:12px!important;line-height:1.65!important;font-family:'SF Mono',Consolas,monospace!important;}
+
+  .section{max-width:960px;margin:0 auto 48px;padding:0 40px;}
+  .section-title{font-size:13px;font-weight:600;color:#8b949e;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:16px;display:flex;align-items:center;gap:8px;}
+  .section-title::after{content:'';flex:1;height:1px;background:#21262d;}
   .breakdown{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
   .card{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:18px;}
   .card-title{font-size:14px;font-weight:600;color:#e6edf3;margin-bottom:6px;}
@@ -58,15 +74,13 @@
   .terminal{background:#0d1117;border:1px solid #21262d;border-radius:10px;overflow:hidden;}
   .terminal-header{background:#161b22;padding:10px 16px;border-bottom:1px solid #21262d;font-size:12px;color:#8b949e;}
   .terminal-body{padding:20px;font-family:'SF Mono',monospace;font-size:13px;line-height:1.9;}
-  .t-prompt{color:#1D9E75;}
-  .t-out{color:#e6edf3;}
-  .t-comment{color:#8b949e;}
-  .t-err{color:#f85149;}
+  .t-prompt{color:#1D9E75;}.t-out{color:#e6edf3;}.t-comment{color:#8b949e;}.t-err{color:#f85149;}
   footer{border-top:1px solid #21262d;padding:24px 40px;text-align:center;font-size:13px;color:#8b949e;}
-  @media(max-width:600px){nav{padding:12px 16px;}.hero,.section{padding-left:16px;padding-right:16px;}.breakdown{grid-template-columns:1fr;}.stats{grid-template-columns:1fr 1fr;}h1{font-size:26px;}}
+  @media(max-width:700px){.two-col{grid-template-columns:1fr;}.breakdown{grid-template-columns:1fr;}nav{padding:12px 16px;}.hero,.section{padding-left:16px;padding-right:16px;}h1{font-size:26px;}.two-col{padding:0 16px;}}
 </style>
 </head>
 <body>
+
 <nav>
   <div class="nav-left">
     <div class="avatar">AM</div>
@@ -74,7 +88,7 @@
     <span class="nav-sep">/</span>
     <span class="nav-repo">calculator</span>
   </div>
-  <div style="display:flex;gap:12px;">
+  <div style="display:flex;gap:10px;">
     <a href="https://github.com/adwaitmulay" target="_blank"><button class="btn">GitHub</button></a>
     <a href="mailto:adwait.mulay071@gmail.com"><button class="btn btn-primary">Contact</button></a>
   </div>
@@ -83,7 +97,7 @@
 <div class="hero">
   <div class="badge"><span></span> C++ Project</div>
   <h1>Simple <em>Calculator</em></h1>
-  <p class="subtitle">A 5-operation console calculator built in C++ — engineered with modular functions, switch-case control flow, and full edge-case handling including division by zero.</p>
+  <p class="subtitle">A 5-operation console calculator built in C++ — modular functions, switch-case logic, and full edge-case handling. Try it live on the left, read the source on the right.</p>
   <div class="tags">
     <span class="tag tag-cpp">C++</span>
     <span class="tag tag-oop">Modular Functions</span>
@@ -91,21 +105,45 @@
     <span class="tag tag-algo">Input Validation</span>
     <span class="tag tag-oop">Edge Case Handling</span>
   </div>
-  <div class="stats">
-    <div class="stat"><div class="stat-num">~80</div><div class="stat-label">Lines of code</div></div>
-    <div class="stat"><div class="stat-num">5</div><div class="stat-label">Operations</div></div>
-    <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Input paths tested</div></div>
-  </div>
 </div>
 
-<div class="section">
-  <div class="section-title">Source code</div>
-  <div class="code-wrapper">
+<!-- LIVE DEMO + SOURCE SIDE BY SIDE -->
+<div class="two-col">
+
+  <!-- LEFT: Working Calculator -->
+  <div class="calc-wrap">
+    <div class="calc-label">Live demo</div>
+    <div class="calc-display">
+      <div class="calc-expr" id="expr"></div>
+      <div class="calc-num" id="display">0</div>
+    </div>
+    <div class="calc-grid">
+      <button class="cb cf" onclick="calc('clear')" style="grid-column:span 2">AC</button>
+      <button class="cb cf" onclick="calc('sign')">+/−</button>
+      <button class="cb co" id="op-/" onclick="calc('op','/')">÷</button>
+      <button class="cb cn" onclick="calc('num','7')">7</button>
+      <button class="cb cn" onclick="calc('num','8')">8</button>
+      <button class="cb cn" onclick="calc('num','9')">9</button>
+      <button class="cb co" id="op-*" onclick="calc('op','*')">×</button>
+      <button class="cb cn" onclick="calc('num','4')">4</button>
+      <button class="cb cn" onclick="calc('num','5')">5</button>
+      <button class="cb cn" onclick="calc('num','6')">6</button>
+      <button class="cb co" id="op--" onclick="calc('op','-')">−</button>
+      <button class="cb cn" onclick="calc('num','1')">1</button>
+      <button class="cb cn" onclick="calc('num','2')">2</button>
+      <button class="cb cn" onclick="calc('num','3')">3</button>
+      <button class="cb co" id="op-+" onclick="calc('op','+')">+</button>
+      <button class="cb cn cz" onclick="calc('num','0')" style="grid-column:span 2">0</button>
+      <button class="cb cn" onclick="calc('dot')">.</button>
+      <button class="cb ce" onclick="calc('equals')">=</button>
+    </div>
+  </div>
+
+  <!-- RIGHT: C++ Source Code -->
+  <div class="code-wrap">
     <div class="code-header">
       <div class="code-dots">
-        <div class="dot dot-r"></div>
-        <div class="dot dot-y"></div>
-        <div class="dot dot-g"></div>
+        <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
       </div>
       <span class="code-filename">calculator.cpp</span>
       <button class="copy-btn" onclick="copyCode()">Copy</button>
@@ -113,10 +151,8 @@
     <pre><code class="language-cpp">#include &lt;iostream&gt;
 using namespace std;
 
-// Display the menu of operations
 void showMenu() {
     cout &lt;&lt; "\n=== Simple Calculator ===" &lt;&lt; endl;
-    cout &lt;&lt; "Select operation:" &lt;&lt; endl;
     cout &lt;&lt; "1. Addition       (+)" &lt;&lt; endl;
     cout &lt;&lt; "2. Subtraction    (-)" &lt;&lt; endl;
     cout &lt;&lt; "3. Multiplication (*)" &lt;&lt; endl;
@@ -126,8 +162,8 @@ void showMenu() {
     cout &lt;&lt; "Enter choice: ";
 }
 
-// Perform calculation based on operator choice
-double calculate(double a, double b, int choice, bool &amp;valid) {
+double calculate(double a, double b,
+                 int choice, bool &amp;valid) {
     valid = true;
     switch (choice) {
         case 1: return a + b;
@@ -135,22 +171,21 @@ double calculate(double a, double b, int choice, bool &amp;valid) {
         case 3: return a * b;
         case 4:
             if (b == 0) {
-                cout &lt;&lt; "Error: Division by zero is undefined." &lt;&lt; endl;
-                valid = false;
-                return 0;
+                cout &lt;&lt; "Error: Division by zero."
+                     &lt;&lt; endl;
+                valid = false; return 0;
             }
             return a / b;
         case 5:
             if (b == 0) {
-                cout &lt;&lt; "Error: Modulus by zero is undefined." &lt;&lt; endl;
-                valid = false;
-                return 0;
+                cout &lt;&lt; "Error: Modulus by zero."
+                     &lt;&lt; endl;
+                valid = false; return 0;
             }
             return (int)a % (int)b;
         default:
             cout &lt;&lt; "Error: Invalid operation." &lt;&lt; endl;
-            valid = false;
-            return 0;
+            valid = false; return 0;
     }
 }
 
@@ -159,72 +194,68 @@ int main() {
     double num1, num2;
     bool valid;
 
-    cout &lt;&lt; "Welcome to the Simple Calculator!" &lt;&lt; endl;
+    cout &lt;&lt; "Welcome to Simple Calculator!" &lt;&lt; endl;
 
     while (true) {
         showMenu();
         cin &gt;&gt; choice;
-
         if (choice == 0) {
             cout &lt;&lt; "Exiting. Goodbye!" &lt;&lt; endl;
             break;
         }
-
         cout &lt;&lt; "Enter first number: ";
         cin &gt;&gt; num1;
         cout &lt;&lt; "Enter second number: ";
         cin &gt;&gt; num2;
-
-        double result = calculate(num1, num2, choice, valid);
-
-        if (valid) {
+        double result = calculate(num1, num2,
+                                  choice, valid);
+        if (valid)
             cout &lt;&lt; "Result: " &lt;&lt; result &lt;&lt; endl;
-        }
     }
-
     return 0;
 }</code></pre>
   </div>
 </div>
 
+<!-- BREAKDOWN -->
 <div class="section">
   <div class="section-title">Code breakdown</div>
   <div class="breakdown">
     <div class="card">
       <div class="card-title">⚙️ Modular design</div>
-      <div class="card-desc">Logic split into showMenu() and calculate() — each function has a single responsibility, reducing duplication across the codebase.</div>
+      <div class="card-desc">Logic split into showMenu() and calculate() — single responsibility per function, reducing duplication.</div>
       <div class="card-line">showMenu() · calculate() · main()</div>
     </div>
     <div class="card">
       <div class="card-title">🔀 Switch-case control flow</div>
-      <div class="card-desc">All 5 arithmetic operations handled via a clean switch statement — readable, extendable, and efficient for discrete integer inputs.</div>
+      <div class="card-desc">All 5 operations handled via a clean switch — readable, extendable, efficient for discrete inputs.</div>
       <div class="card-line">switch(choice) { case 1..5 }</div>
     </div>
     <div class="card">
       <div class="card-title">🛡️ Edge case handling</div>
-      <div class="card-desc">Division by zero and modulus by zero both caught before execution — program recovers gracefully without crashing.</div>
+      <div class="card-desc">Division and modulus by zero caught before execution — program recovers gracefully without crashing.</div>
       <div class="card-line">if (b == 0) → Error + valid=false</div>
     </div>
     <div class="card">
       <div class="card-title">🔁 Persistent loop</div>
-      <div class="card-desc">while(true) loop keeps the calculator running across multiple calculations — clean exit on input 0.</div>
+      <div class="card-desc">while(true) keeps the calculator running — clean exit on input 0, no memory leaks or dangling state.</div>
       <div class="card-line">while(true) · break on exit</div>
     </div>
   </div>
 </div>
 
+<!-- TERMINAL OUTPUT -->
 <div class="section">
-  <div class="section-title">Sample output</div>
+  <div class="section-title">Sample terminal output</div>
   <div class="terminal">
-    <div class="terminal-header">▶ Running · g++ calculator.cpp -o calculator</div>
+    <div class="terminal-header">▶ g++ calculator.cpp -o calculator && ./calculator</div>
     <div class="terminal-body">
-      <div class="t-comment">Welcome to the Simple Calculator!</div><br>
+      <div class="t-comment">Welcome to Simple Calculator!</div><br>
       <div class="t-comment">=== Simple Calculator ===</div>
-      <div class="t-out">Select operation: 1(+) 2(-) 3(*) 4(/) 5(%) 0(Exit)</div>
       <div><span class="t-prompt">→ </span><span class="t-out">Enter choice: <strong>4</strong></span></div>
       <div><span class="t-prompt">→ </span><span class="t-out">Enter first number: <strong>10</strong></span></div>
       <div><span class="t-prompt">→ </span><span class="t-out">Enter second number: <strong>0</strong></span></div>
-      <div class="t-err">Error: Division by zero is undefined.</div><br>
+      <div class="t-err">Error: Division by zero.</div><br>
       <div><span class="t-prompt">→ </span><span class="t-out">Enter choice: <strong>1</strong></span></div>
       <div><span class="t-prompt">→ </span><span class="t-out">Enter first number: <strong>25</strong></span></div>
       <div><span class="t-prompt">→ </span><span class="t-out">Enter second number: <strong>17</strong></span></div>
@@ -241,12 +272,32 @@ int main() {
 
 <script>
 hljs.highlightAll();
+let cur='0',prev=null,op=null,fresh=false;
+const disp=document.getElementById('display');
+const expr=document.getElementById('expr');
+function clrActive(){['/','-','*','+'].forEach(o=>{const b=document.getElementById('op-'+o);if(b)b.classList.remove('lit');});}
+function fmt(n){let s=parseFloat(n.toPrecision(10)).toString();return s.length>12?parseFloat(n.toPrecision(6)).toString():s;}
+function sym(o){return o==='/'?'÷':o==='*'?'×':o==='-'?'−':'+';}
+function compute(a,b,o){if(o==='/'&&b===0)return'Error';let r;if(o==='+')r=a+b;else if(o==='-')r=a-b;else if(o==='*')r=a*b;else r=a/b;return fmt(r);}
+function calc(type,val){
+  if(type==='num'){if(cur==='Error'){cur=val;fresh=false;}else if(fresh||cur==='0'){cur=val;fresh=false;}else if(cur.length<12)cur+=val;clrActive();}
+  else if(type==='dot'){if(fresh){cur='0.';fresh=false;}else if(!cur.includes('.'))cur+='.';clrActive();}
+  else if(type==='sign'){if(cur!=='0'&&cur!=='Error')cur=(parseFloat(cur)*-1).toString();}
+  else if(type==='op'){
+    clrActive();
+    if(op&&!fresh){let r=compute(parseFloat(prev),parseFloat(cur),op);if(r==='Error'){cur='Error';op=null;prev=null;expr.textContent='';disp.textContent=cur;return;}prev=r.toString();cur=r.toString();}else{prev=cur;}
+    op=val;fresh=true;expr.textContent=prev+' '+sym(val);
+    const ob=document.getElementById('op-'+val);if(ob)ob.classList.add('lit');
+  }
+  else if(type==='equals'){
+    if(op&&prev!==null){clrActive();let r=compute(parseFloat(prev),parseFloat(cur),op);expr.textContent=prev+' '+sym(op)+' '+cur+' =';cur=r==='Error'?'Error':r.toString();op=null;prev=null;fresh=true;}
+  }
+  else if(type==='clear'){cur='0';prev=null;op=null;fresh=false;expr.textContent='';clrActive();}
+  disp.textContent=cur;
+}
 function copyCode(){
-  const code=document.querySelector('pre code').innerText;
-  navigator.clipboard.writeText(code).then(()=>{
-    const btn=document.querySelector('.copy-btn');
-    btn.textContent='Copied!';
-    setTimeout(()=>btn.textContent='Copy',2000);
+  navigator.clipboard.writeText(document.querySelector('pre code').innerText).then(()=>{
+    const b=document.querySelector('.copy-btn');b.textContent='Copied!';setTimeout(()=>b.textContent='Copy',2000);
   });
 }
 </script>
